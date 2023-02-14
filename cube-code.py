@@ -31,7 +31,7 @@ def p_on_param_eq(p0: np.ndarray, p1: np.ndarray, t: float):
     return p0 + (p1 - p0) * t
 
 for coord in coords:
-    t = round(random.uniform(1.0, 1.7), 2)
+    t = round(random.uniform(1.0, 1.5), 2)
     new_coord = p_on_param_eq(obs_p, coord, t)
     meshes.append(cube_at_coords(*new_coord, scale = 0.5 * t))
 
