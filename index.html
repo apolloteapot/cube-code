@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>□ CUBE|CODE □</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="□ CUBE|CODE □">
+        <meta property="og:description" content="ちっちゃいキューブってかわいいですね♡">
+        <meta property="og:image" content="https://apolloteapot.github.io/cube-code/thumbnail.png">
+        <meta name="twitter:card" content="summary">
+    </head>
+
+    <style>
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+          }
+    </style>
+
+    <!-- https://github.com/omrips/viewstl -->
+
+    <body>
+        <div id="stl_cont" class="fullscreen"></div>
+
+        <script src="stl_viewer/stl_viewer.min.js"></script>   
+         
+        <script>
+            var model_id = parseInt(new URL(window.location.href).searchParams.get('id'));
+
+            var valid_model_ids = [1, 2]
+
+            if (!valid_model_ids.includes(model_id))
+            {
+                model_id = valid_model_ids[0];
+            }
+
+            var stl_viewer = new StlViewer
+            (
+                document.getElementById("stl_cont"),
+                {
+                    zoom: 20,
+                    models:
+                    [
+                        {filename: `../cubes-${model_id}.stl`}
+                    ]
+                }
+            );
+        </script>
+        
+    </body>
+</html>
